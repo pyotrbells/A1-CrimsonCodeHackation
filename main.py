@@ -15,7 +15,15 @@ async def on_ready():
         print(e)
 
 @bot.tree.command(name="shop")
-async def shop(interaction: discord.Interaction, Display_pets:Optional[bool], Display_items:Optional[bool]):
+@app_commands.describe(action='What would you like to do?')
+@app_commands.choices(action=[
+        discord.app_commands.Choice(name='Go to Inventory', value = 1),
+        discord.app_commands.Choice(name='Go to Shop', value = 2),
+
+])
+async def shop(interaction: discord.Interaction, action: discord.app_commands.Choice[int]):
+    await interaction.response.send_message(f"Action Choosen: {action.name}")
+#Display_pets:Optional[bool], Display_items:Optional[bool]):
     #display pets and items
 
     #use if-statements to determine what they choose to buy
