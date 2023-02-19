@@ -3,7 +3,6 @@ from discord import app_commands
 from discord.ext import commands
 from typing import Optional
 
-TOKEN = 'MTA3NjYzNDM1MzAxMjA0NzkzNA.GXi6Gw.lTV5c8IabjOJ2BFgHO_IE5Del_o3ZFMXhrPik4'
 bot = commands.Bot(command_prefix="!", intents = discord.Intents.all())
 
 @bot.event
