@@ -3,7 +3,7 @@ from discord import app_commands
 from discord.ext import commands
 from typing import Optional
 
-bot = commands.Bot(command_prefic="!", intents = discord.Intents.all())
+bot = commands.Bot(command_prefix="!", intents = discord.Intents.all())
 
 @bot.event
 async def on_ready():
@@ -13,11 +13,6 @@ async def on_ready():
         print(f"Synced {len(synced)} command(s)")
     except Exception as e:
         print(e)
-        
-@bot.tree.command(name="hello")
-async def hello(interaction: discord.Interaction):
-    await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command",
-    ephemeral = True)
 
 @bot.tree.command(name="shop")
 @app_commands.describe(action='What would you like to do?')
