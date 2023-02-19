@@ -3,13 +3,31 @@ from discord import app_commands
 from discord.ext import commands
 from typing import Optional
 
+#def run_cat_bot():
+#    intents = discord.Inents.default()
+#    intents.message_content = True
+#    bot = discord.Bot(intents=intents)
+#    
+#    @bot.event
+#    async def on_ready():
+#        print(f'{bot.user} is now running!')
+#        
+#    @client.event
+#    async def on_message(message):
+#        if message.author = bot.user:
+#            return
+#        
+#        username = str(message.author)
+#        user_message = str(message.content)
+#        channel = str(message.channel)
+
 bot = commands.Bot(command_prefix="!", intents = discord.Intents.all())
 
 @bot.event
 async def on_ready():
     print("Bot is ready")
     try:
-        sync = await bot.tree.sync()
+        synced = await bot.tree.sync()
         print(f"Synced {len(synced)} command(s)")
     except Exception as e:
         print(e)
